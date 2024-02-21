@@ -21,8 +21,16 @@ mongoose.connect(process.env.MONGO).then(()=>{
     console.log("db not connecte");
 });
 
-
-
+// error handling middleware , global catches
+app.use((err,req,res,next)=>{
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Internal server Error';
+    return res.status(statusCode).json({
+        message,
+        success:false,
+        statusCode
+    });
+})
 app.listen(3000,()=>{
     console.log("app active on port 3000");
 })
