@@ -36,3 +36,30 @@ create .env file in mern-estate and add MONGO variable assigned to the connectio
 import the dotenv module in index.js
 dotenv.config()
 add .env file to .gitignore before commit
+
+
+
+part 6) creating signup backend 
+part 7) creating signup frontend
+important parts were how to use formData and setFormData, show and hide passoword feature
+also understanding and defining proxy in vite.config.js file
+
+export default defineConfig({
+  server : {
+    proxy:{
+      '/api' : {
+        target : 'http://localhost:3000',
+        secure: false,
+      },
+    },
+  },
+  plugins: [react()],
+})
+
+
+Another imp part is loading effect 
+when the backend request is sent and while we have not yet received res , we need to disable the signup button
+we will use another state variable loading initially false , for the button we need to disabled it when loading is true code :  disabled:{loading}
+also when loading we need to change the text on the button {loading ? "loading" : "SIGN UP"}
+
+ 
