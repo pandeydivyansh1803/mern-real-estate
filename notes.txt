@@ -62,4 +62,38 @@ when the backend request is sent and while we have not yet received res , we nee
 we will use another state variable loading initially false , for the button we need to disabled it when loading is true code :  disabled:{loading}
 also when loading we need to change the text on the button {loading ? "loading" : "SIGN UP"}
 
+
+
+part 8) creating sign in api
+first we need to define signin controller
+it must first check for email and then password and if fine then use jwt to generate token and send token using cookie
+
+Cookies
+HTTP cookies. These are small pieces of data that websites store on a user's device. Cookies are commonly used for various purposes such as session management, tracking user behavior, personalization, and more.
+
+Types of Cookies:
+Session Cookies: These are temporary cookies that are erased when the user closes their web browser. They are used to maintain session information.
+
+Persistent Cookies: These cookies remain on the user's device for a specified period or until the user deletes them. They are often used for purposes like remembering login details or preferences.
+
+
+How Cookies Work:
+When a user visits a website, the server sends a response with a "Set-Cookie" header.
+The browser then stores this cookie.
+On subsequent requests to the same website, the browser sends the cookie data back to the server using the "Cookie" header.
+The server can then use this data to customize the user's experience, remember login status, etc.
+
+
+sending cookie in response
+
+res.cookie('access_token',token,{httpOnly:true}).status(200).json(validUser);
+
+res.cookie() is an Express method used to set cookies in the HTTP response.
+'access_token' is the name of the cookie being set.
+token is the value being assigned to the cookie. This is typically a JWT (JSON Web Token), which is commonly used for authentication purposes.
+{ httpOnly: true } is an option for the cookie settings. When httpOnly is set to true, it means that the cookie is only accessible through the HTTP protocol, and JavaScript running in the browser cannot access it. This is a security measure to prevent cross-site scripting (XSS) attacks.
+
+So in summary, this code snippet is a common pattern for handling authentication in a Node.js/Express application. It sets an httpOnly cookie named "access_token" with a JWT token, responds with a 200 status to indicate success, and sends back user data in JSON format.
+Since we have no mentioned the expires so it is a session cookie
+The cookie created in the provided code snippet is a session cookie. This is because it does not specify an expiration time, which means it will be removed when the user closes their browser. 
  
