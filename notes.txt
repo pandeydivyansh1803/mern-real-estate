@@ -100,4 +100,13 @@ The cookie created in the provided code snippet is a session cookie. This is bec
 
 part 9) create sign in page ui and functionality
 same as sign up page
+
+
+
+part 10) understanding redux toolkit from 6pack programmer
+create a project named redux toolkit in 100x devs
+npm i @reduxjs/toolkit react-redux
+
+part 11) add redux toolkit to mern estate project
+
  

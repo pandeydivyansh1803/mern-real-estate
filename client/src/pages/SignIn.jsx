@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { signInStart,signInSuccess,signInFailure } from '../redux/user/userSlice';
+
 export default function SignIn() {
   const [formData,setFormData] = useState({});
   const [passwordVisible,setPasswordVisible] = useState(false);
-  const [error,setError] = useState(null);
-  const [loading,setLoading] = useState(false)
+  // const [error,setError] = useState(null);
+  // const [loading,setLoading] = useState(false)
+  const {loading,error} = useSelector((state)=>state.user)
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -19,7 +26,8 @@ export default function SignIn() {
   }
   const handleSubmit= async (e)=>{
     e.preventDefault();
-    setLoading(true);
+    // setLoading(true);
+    dispatch(signInStart());
     try{
       const res = await fetch("/api/auth/signin",{
         method: 'POST',
@@ -31,21 +39,24 @@ export default function SignIn() {
       const data = await res.json();
       
       if(data.success === false){
-        setError(data.message);
-        setLoading(false)
+        // setError(data.message);
+        // setLoading(false);
+        dispatch(signInFailure(data.message))
       }else{
-        setLoading(false)
-        setError(null)
+        // setLoading(false)
+        // setError(null)
+        dispatch(signInSuccess(data));
         navigate('/');
       }
     }catch(err){
-      setLoading(false)
-      setError(err.message)
+      // setLoading(false)
+      // setError(err.message)
+      dispatch(signInFailure(err.message))
     }
     
     
   }
-  const navigate = useNavigate();
+  
   return (
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl text-center font semibold my-7'>Sign In</h1>
