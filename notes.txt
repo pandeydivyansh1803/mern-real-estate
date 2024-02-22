@@ -96,4 +96,8 @@ token is the value being assigned to the cookie. This is typically a JWT (JSON W
 So in summary, this code snippet is a common pattern for handling authentication in a Node.js/Express application. It sets an httpOnly cookie named "access_token" with a JWT token, responds with a 200 status to indicate success, and sends back user data in JSON format.
 Since we have no mentioned the expires so it is a session cookie
 The cookie created in the provided code snippet is a session cookie. This is because it does not specify an expiration time, which means it will be removed when the user closes their browser. 
+
+
+part 9) create sign in page ui and functionality
+same as sign up page
  
