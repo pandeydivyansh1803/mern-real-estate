@@ -108,5 +108,14 @@ create a project named redux toolkit in 100x devs
 npm i @reduxjs/toolkit react-redux
 
 part 11) add redux toolkit to mern estate project
+this section was all about creatin store and using configure store to add reducer
+also createSlice and exporting actions 
+use video to better understand this section.
+
+problem: after refreshing the page currentuser is set to null
+
+
+Add redux persist
+Helps to store data in localstorage.
 
  
