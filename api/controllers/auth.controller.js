@@ -17,7 +17,7 @@ const signup =async (req,res,next)=>{
         // next(errorHandler(550,'user not created'));
         next(err);
     }
-}
+ }
 
 const signin = async(req,res,next)=>{
     const {email,password} = req.body;
@@ -35,7 +35,9 @@ const signin = async(req,res,next)=>{
 
         // jwt and token
         const token = jwt.sign({id:validUser._id,email},process.env.JWT_SECRET)
-        res.cookie('access_token',token,{httpOnly:true}).status(200).json(validUser);
+
+        const {password:pass , ...rest} = validUser._doc;
+        res.cookie('access_token',token,{httpOnly:true}).status(200).json(rest);
     }catch(err){
         next(err);
     }
