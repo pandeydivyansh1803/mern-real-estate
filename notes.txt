@@ -117,5 +117,11 @@ problem: after refreshing the page currentuser is set to null
 
 Add redux persist
 Helps to store data in localstorage.
+Whenever we refresh web app then we need to again login, to solve this problem use redux persist which stores the credentials in local storage
+
+
+part 10)
+google OAuth functionality
+
 
  
