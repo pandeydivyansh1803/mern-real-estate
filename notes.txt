@@ -124,4 +124,10 @@ part 10)
 google OAuth functionality
 
 
+part 11)
+update header and make profile page private
+
+private profile page means 
+http:localhost:3000/profile redirects you to home page if user is not log in
+
  

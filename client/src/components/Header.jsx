@@ -1,8 +1,12 @@
 import React from 'react'
 import {FaSearch} from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import Profile from './../pages/Profile';
 
 export default function Header() {
+  const {currentUser} = useSelector((state)=>state.user)
+
   const navigate = useNavigate();
   return (
     <header className='bg-slate-200 shadow-md'>
@@ -25,12 +29,17 @@ export default function Header() {
           <li className='hidden sm:inline text-slate-700 hover:underline cursor-pointer' onClick={()=>{
             navigate('/about')
           }}>About</li>
-          <li className='sm:inline text-slate-700 hover:underline cursor-pointer' onClick={()=>{
+          {currentUser ? (
+            <img onClick={()=>{
+              navigate('/profile')
+            }} className='rounded-full h-7 w-7 object-cover cursor-pointer' src = {currentUser.avatar} alt= "profile" ></img>
+          ) : (<li className='sm:inline text-slate-700 hover:underline cursor-pointer' onClick={()=>{
             navigate('/sign-in')
-          }}>SignIn</li>
+          }}>SignIn</li> )}
+          
         </ul>
 
-      </div>
+      </div> 
 
     </header>
   )
