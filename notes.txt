@@ -133,5 +133,7 @@ http:localhost:3000/profile redirects you to home page if user is not log in
 part 12)
 complete profile page ui by seeing video
 
+part 13)
+understand useRef for file upload and complete image  upload functionality
 
  
