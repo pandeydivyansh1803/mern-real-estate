@@ -4,12 +4,14 @@ const User = require("./models/user.model")
 const userRouter = require("./routes/user.route")
 const authRouter = require("./routes/auth.route")
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 // configure .env
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 // defining routes
 app.use("/api/user",userRouter);
