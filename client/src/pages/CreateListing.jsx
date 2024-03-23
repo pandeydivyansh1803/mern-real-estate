@@ -37,7 +37,7 @@ export default function CreateListing() {
             setImageUploadError('You can only upload 6 images per listing')
             setUploading(false)
         }
-    }
+    }  
 
     const storeImage = async (file)=>{
         return new Promise((resolve,reject)=>{
