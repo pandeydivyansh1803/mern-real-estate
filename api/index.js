@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const User = require("./models/user.model")
 const userRouter = require("./routes/user.route")
 const authRouter = require("./routes/auth.route")
+const listingRouter = require('./routes/listing.route')
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 
@@ -16,6 +17,7 @@ app.use(cookieParser());
 // defining routes
 app.use("/api/user",userRouter);
 app.use("/api/auth",authRouter);
+app.use('/api/listing',listingRouter);
 
 mongoose.connect(process.env.MONGO).then(()=>{
     console.log("db connected")
