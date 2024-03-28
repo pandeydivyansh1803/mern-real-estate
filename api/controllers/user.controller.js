@@ -62,4 +62,21 @@ const getUserListings = async (req,res,next)=>{
     }
     
 }
-module.exports = {test,updateUser , deleteUser, getUserListings};
+
+const getUser = async (req,res,next)=>{
+    
+    try{
+        const id = req.params.id;
+        const user = await User.findById(id);
+        if(!user){
+            return next(errorHandler(404,'user not found'));
+        }
+        const {password: pass, ...rest} = user._doc;
+        return res.status(200).json(rest);
+
+    }
+    catch(err){
+        next(err);
+    }
+}
+module.exports = {test,updateUser , deleteUser, getUserListings,getUser};
