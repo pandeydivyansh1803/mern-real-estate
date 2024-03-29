@@ -15,6 +15,7 @@ import {FaBath,
 import {useSelector} from 'react-redux'
 import Contact from '../components/Contact';
 
+
 export default function Listing() {
     SwiperCore.use([Navigation]);
     const navigate = useNavigate();
@@ -95,7 +96,7 @@ export default function Listing() {
                         </p>
                         {
                             listing.offer && (
-                                <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>${+listing.regularPrice - +listing.discountPrice}</p>
+                                <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>${+listing.regularPrice - +listing.discountPrice} OFF</p>
                             )
                         }
                     </div>
