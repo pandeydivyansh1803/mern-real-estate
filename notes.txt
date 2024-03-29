@@ -136,4 +136,22 @@ complete profile page ui by seeing video
 part 13)
 understand useRef for file upload and complete image  upload functionality
 
- 
+
+
+******* search api route ******
+we've used query parameters effectively to define the parameters for searching
+
+if we don't have query parameter for something then it is said to be undefined
+
+
+name : {$regex : searchTerm, $options : 'i'}
+this means we want to find listing where name has searchTerm in it and ($options : 'i') makes it case insensitive.
+
+similarly we have defined for offer,furnished, parking, type etc.
+
+skip(val)
+this skips val number of staring records/documents
+
+limit(n)
+gives only n records/documents
+
