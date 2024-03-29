@@ -137,6 +137,15 @@ part 13)
 understand useRef for file upload and complete image  upload functionality
 
 
+*********UseParams ******** 
+this hook is imported from react-router-dom
+we need to initialise this hook first
+then using this hook we can get the path parameters
+
+eg
+const params = useParams();
+const listingId = params.listingId;
+
 
 ******* search api route ******
 we've used query parameters effectively to define the parameters for searching
@@ -155,3 +164,29 @@ this skips val number of staring records/documents
 limit(n)
 gives only n records/documents
 
+
+
+******** Window.location.href ***********
+returns the current URL of the web page
+
+
+******** window.location.search **********
+returns the query string from the current URL of the web page.
+
+
+******* URLSearchParams ************
+is built-in JS class that provides an easy way to parse and access the parameters from a query string
+Therefore it returns a new URLSearchParams object with query string url. This object can be used to access and manipulate the parameters in the query  string
+
+
+eg : 
+// URL: https://example.com/?name=John&age=30
+
+const params = new URLSearchParams(window.location.search);
+
+console.log(params.get('name')); // Output: "John"
+console.log(params.get('age')); // Output: "30"
+
+output:
+John
+30
