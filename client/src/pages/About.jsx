@@ -21,10 +21,7 @@ export default function About() {
         <div className="container mx-auto px-4">
           <h2 className="text-xl font-bold mb-2"><span className='font-semibold'>Developed by : </span>   <span className='text-slate-700'>Divyansh Pandey</span></h2>
           <div className="flex items-center space-x-4">
-            <a target="_blank" href="https://www.instagram.com/pandeydivyansh1803/" className="text-gray-700 hover:text-gray-900 flex items-center">
-              <TiSocialInstagram className="w-6 h-6 mr-1" />
-              Instagram
-            </a>
+            
             <a target="_blank" href="www.linkedin.com/in/divyansh-pandey-534996220" className="text-gray-700 hover:text-gray-900 flex items-center">
               <TiSocialLinkedin className="w-6 h-6 mr-1" />
               LinkedIn
@@ -32,6 +29,10 @@ export default function About() {
             <a target="_blank" href="https://github.com/pandeydivyansh1803" className="text-gray-700 hover:text-gray-900 flex items-center">
               <TiSocialGithub className="w-6 h-6 mr-1" />
               GitHub
+            </a>
+            <a target="_blank" href="https://www.instagram.com/pandeydivyansh1803/" className="text-gray-700 hover:text-gray-900 flex items-center">
+              <TiSocialInstagram className="w-6 h-6 mr-1" />
+              Instagram
             </a>
           </div>
         </div>
